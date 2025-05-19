@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️❤️❤️ 520永远爱你 ❤️❤️❤️</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft Yahei', sans-serif;
+            cursor: default;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            background-size: 400% 400%;
+            animation: gradient 20s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        /* 飘落的爱心动画 */
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart-fall {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: red;
+            transform: rotate(-45deg);
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        .heart-fall::before,
+        .heart-fall::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: red;
+            border-radius: 50%;
+        }
+
+        .heart-fall::before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart-fall::after {
+            left: 15px;
+            top: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(110vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* 容器样式 */
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+			border-radius: 20px;
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			padding: 25px 20px; /* 减少内边距 */
+			width: 90%;
+			max-width: 600px;
+			text-align: center;
+			z-index: 2;
+			position: relative;
+			animation: fadeInUp 2s ease-out;
+			max-height: 95vh; /* 更大一些，容纳更多内容 */
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        p {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle 2s ease-out infinite;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        button {
+            padding: 18px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+
+        .love-letter {
+            position: relative;
+			margin-top: 30px;
+			padding: 25px 40px; /* 增加内边距，让文字不贴边 */
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 15px;
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			animation: float 3s ease-in-out infinite;
+			max-width: 90%; /* 更宽一些 */
+			width: 100%;
+			text-align: center;
+			line-height: 1.6; /* 行高更舒适 */
+			font-size: 1.15rem; /* 统一字体大小 */
+        }
+		.love-letter h1 {
+			margin-bottom: 25px;
+		}
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .photo-frame {
+            margin: 20px 0;
+            border: 3px solid white;
+            border-radius: 20px;
+            padding: 5px;
+            display: inline-block;
+            animation: rotate 10s linear infinite;
+        }
+
+        .photo-frame img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid #fff;
+			transition: all 0.3s ease; /* 添加过渡 */
+			cursor: pointer;
+        }
+		/* 悬停时放大并提升阴影 */
+		.photo-frame img:hover {
+			transform: scale(2);
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+		}
+
+        @keyframes rotate {
+            0% { transform: rotate(-2deg); }
+            100% { transform: rotate(2deg); }
+        }
+
+        .time-card {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .time-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .time-header svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+        }
+
+        .time-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .time-row:last-child {
+            border-bottom: none;
+        }
+
+        .time-label {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .time-value {
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        /* 新增图片容器样式 */
+        .first-chat-img,
+		.together-img {
+            width: 100px;
+			height: auto;
+			border-radius: 10px;
+			border: 2px solid #fff;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+			transition: all 0.3s ease;
+			cursor: pointer;
+			margin-left: 20px;
+        }
+       /* 鼠标悬停时放大 */
+        .first-chat-img:hover,
+		.together-img:hover {
+            transform: scale(10); /* 放大为原来的 1.2 倍 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+		.title-heart {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10px; /* 控制左右部分间距 */
+			color: #fff;
+			font-size: 3rem;
+			margin-bottom: 20px;
+			text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+			animation: pulse 2s infinite;
+			white-space: nowrap;
+		}
+
+		.hearts-left,
+		.hearts-right {
+			display: inline-block;
+			animation: floatHearts 2s ease-in-out infinite alternate;
+		}
+		.love-letter p {
+			color: #000; /* 已调整为黑色以增强可读性 */
+			margin-bottom: 25px; /* 每个段落之间留出空隙 */
+			text-align: left; /* 文字左对齐，更适合阅读 */
+			max-width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		@keyframes floatHearts {
+			0% { transform: translateY(0); }
+			100% { transform: translateY(-5px); }
+		}
+
+		.center-text {
+			font-weight: bold;
+		}
+	
+
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .photo-frame img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+		@media (max-width: 600px) {
+			 .first-chat-img,
+			 .together-img {
+				width: 80px;
+				margin-left: 10px;
+			 }
+
+			.first-chat-img:hover,
+			.together-img:hover {
+				transform: scale(1.1);
+			}
+			.photo-frame img {
+				width: 120px;
+				height: 120px;
+			}
+
+			.photo-frame img:hover {
+				transform: scale(1.05); /* 小屏下轻微放大 */
+			}
+			.love-letter {
+				padding: 20px 20px;
+				font-size: 1rem;
+			}
+
+			.love-letter p {
+				margin-bottom: 20px;
+				text-align: left;
+			}
+		}
+	    /* 旅行页面专属样式 */
+		.travel-title {
+			color: #fff;
+			font-size: 2.5rem;
+			margin-bottom: 20px;
+			text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			text-align: center;
+			font-family: '华文行楷', cursive; /* 手写风格字体 */
+			letter-spacing: 2px;
+		}
+		/* 旅行内容右对齐 */
+		#travelContent {
+			text-align: right;
+		}
+
+		.travel-heart {
+			animation: floatHearts 2s ease-in-out infinite alternate;
+		}
+
+		.travel-gallery {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr); /* 固定4列 */
+			grid-auto-rows: minmax(180px, auto); /* 自适应行高 */
+			gap: 15px;
+			margin: 20px 0;
+			justify-items: center;
+			align-items: center;
+			position: relative;
+			z-index: 1; /* 确保父容器层级不影响子元素 */
+		}
+
+		.gallery-item {
+			position: relative;
+			cursor: pointer;
+			border-radius: 15px;
+			background: rgba(255, 255, 255, 0.05);
+			transition: transform 0.3s ease;
+			width: 100%;
+			height: 180px;
+			overflow: visible; /* 防止图片放大后被裁剪 */
+			z-index: 1; /* 所有图层初始层级一致 */
+		}
+
+		.gallery-item:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+		}
+
+		.gallery-item img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain; /* 整体适配，不裁剪 */
+			border-radius: 10px;
+			border: 2px solid rgba(255,255,255,0.3);
+			box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+			transition: transform 0.5s ease, z-index 0.5s ease;
+			will-change: transform;
+			position: relative;
+			z-index: 1; /* 初始层级 */
+		}
+
+		.gallery-item:hover img {
+			transform: scale(1.6); /* 放大比例可自定义 */
+			z-index: 1000; /* 悬停时提升层级 */
+			box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+		}
+
+		.gallery-caption {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+			color: white;
+			padding: 10px;
+			font-size: 0.9rem;
+			text-align: center;
+			backdrop-filter: blur(3px);
+		}
+
+		.travel-notes {
+			background: rgba(255,255,255,0.1);
+			border-radius: 15px;
+			padding: 20px;
+			margin-bottom: 20px;
+			border: 1px solid rgba(255,255,255,0.2);
+			font-style: italic;
+			line-height: 1.8;
+			font-size: 1.1rem;
+			text-align: left;
+			position: relative;
+			z-index: 2;
+			color: #333;
+			font-size: 1.5rem;
+		}
+		.travel-notes p {
+			margin-bottom: 15px;
+		}
+
+		.travel-notes ul {
+			list-style: none;
+			padding-left: 20px;
+			margin: 15px 0;
+		}
+
+		.travel-notes li::before {
+			content: "✦";
+			margin-right: 10px;
+			color: #ffe6f0;
+		}
+
+		.back-button {
+			position: relative;
+			overflow: hidden;
+			margin: 30px auto 0;
+			display: block;
+			padding: 15px 30px;
+			font-size: 1.1rem;
+		}
+
+		.back-button span {
+			position: relative;
+			z-index: 1;
+		}
+
+		.particles {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+		}
+
+		/* 粒子动画 */
+		@keyframes particleMove {
+			0% { transform: translateY(0) scale(1); opacity: 1; }
+			100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+		}
+		@media (max-width: 800px) {
+			.travel-gallery {
+				grid-template-columns: repeat(2, 1fr);
+				grid-gap: 10px;
+			}
+			.gallery-item {
+				height: 150px;
+			}
+		}
+
+		@media (max-width: 500px) {
+			.travel-gallery {
+				grid-template-columns: 1fr;
+				grid-gap: 8px;
+			}
+			.gallery-item {
+				height: 130px;
+			}
+			.gallery-item:hover img {
+				transform: scale(1.2); /* 小屏下轻微放大 */
+			}
+		}
+    </style>
+</head>
+<body>
+    <!-- 飘落的爱心 -->
+    <div class="hearts" id="heartsContainer"></div>
+
+    <div class="container" id="mainContainer">
+        <div class="love-letter">
+            <h1 class="title-heart">
+				<span class="hearts-left">❤️❤️❤️</span>
+				<span class="center-text">佳佳专属</span>
+				<span class="hearts-right">❤️❤️❤️</span>
+			</h1>
+            <p>
+			  在这星河轻语、时光微醺的520，  
+			  我想把藏在心跳里的秘密说给你听。  
+			  <br />
+			  一百个日夜流转，你让平凡的日子变得闪闪发光，  
+			  就像星辰遇见了夜空，就像我遇见了你——命中注定。
+			</p>
+			<p>
+			  从初遇的心动，到如今的默契，  
+			  每一天都像是被温柔点亮的纪念日。  
+			  今天既是520也是我们在一起的第100天，  
+			  愿未来的每一个百天、千天、万天，  
+			  都能与你携手走过，不问归期。
+			</p>
+			<p>
+			  520，不只是“我爱你”，  
+			  更是我想和你一起，在岁月里慢慢变老的承诺。  
+			  愿我们的故事，如星河般绵延，如月光般清澈，  
+			  永远温柔，永远有你。
+			</p>
+            <div class="photo-frame">
+                <img src="photo1.jpg" alt="Love Photo" id="lovePhoto">
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button onclick="showLoveLetter()">确认打开这份心意</button>
+            <button onclick="showTimeTogether()">查看在一起的时间</button>
+        </div>
+		
+    </div>
+
+    <div class="container" id="loveContainer" style="display: none;">
+        <div class="love-letter">
+            <h1>谢谢你，孟佳 ❤️</h1>
+            <p>
+				你像晨曦洒落在我心湖的一缕光，  
+				让我原本寂静的世界泛起温柔涟漪。
+			</p>
+			<p>
+				自从遇见你，每一个时刻都染上了温柔的颜色，  
+				迎着朝阳一起拼搏梦想，  
+				伴着微风在午后分享心事，  
+				拥着晚霞走入彼此的世界，  
+				而夜色中并肩仰望星空时，我知道——这就是我想要的未来。
+			</p>
+			<p>
+				我想用一生的时间，  
+				陪你走过山川湖海，看过星辰大海，  
+				只为在每一个风景里，牵着你的手，说一句：  
+				“有你真好。”
+			</p>
+			<p>
+				孟佳，愿我们以爱为舟，以时间为岸，  
+				在岁月长河中，共赴一场永不落幕的温柔。
+			</p>
+            
+            <div class="photo-frame">
+                <img src="photo2.jpg" alt="Together">
+            </div>
+        </div>
+		
+        <button onclick="window.location.reload()">永远爱你</button>
+    </div>
+
+    <div class="container" id="timeContainer" style="display: none;">
+		<div id="timeContent">
+			<h2>时光记录</h2>
+			<div class="time-card">
+				<div class="time-header">
+					<svg viewBox="0 0 24 24">
+						<path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-20C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l3.58-3.58L16 12l-5 5z"/>
+					</svg>
+					<span>相识于：2025年1月7日</span>
+					<!-- 新增图片容器 -->
+					<img src="chat-screenshot.jpg" alt="初次聊天截图" class="first-chat-img">
+					<!-- 在一起时间与图片 -->
+					<span style="margin-left: 20px;">在一起于：2025年2月10日</span>
+					<img src="together-screenshot.jpg" alt="在一起截图" class="together-img">
+				</div>
+				<div class="time-row">
+					<div class="time-label">相识至今：</div>
+					<div class="time-value" id="sinceMet">00年00月00天</div>
+				</div>
+				<div class="time-row">
+					<div class="time-label">在一起时间：</div>
+					<div class="time-value" id="togetherTime">00天00小时00分00秒</div>
+				</div>
+			</div>
+			<button onclick="backToLoveLetter()">返回</button>
+		</div>
+		<!-- 在timeContainer之后插入旅行容器 -->
+		<div id="travelContent" style="display: none;">
+			<h2 class="travel-title">🌍 我们的旅行记忆 ❤️</h2>
+			
+			<!-- 相册网格 -->
+			<div class="travel-gallery">
+				<!-- 第一行 -->
+				<div class="gallery-item" onclick="openModal(this.children[0].src, '厦门鼓浪屿之旅 🏝️')">
+					<img src="travel1.jpg" alt="鼓浪屿">
+					
+				</div>
+				<div class="gallery-item" onclick="openModal(this.children[0].src, '厦门海边日落 🌅')">
+					<img src="travel2.jpg" alt="海边日落">
+					
+				</div>
+				<div class="gallery-item" onclick="openModal(this.children[0].src, '厦门环岛路骑行 🚴‍♀️')">
+					<img src="travel3.jpg" alt="环岛骑行">
+					
+				</div>
+				<div class="gallery-item" onclick="openModal(this.children[0].src, '厦门沙茶面美食 🍜')">
+					<img src="travel4.jpg" alt="沙茶面">
+					
+				</div>
+
+				<!-- 第二行 -->
+				<div class="gallery-item" onclick="openModal(this.children[0].src, '杭州西湖樱花季 🌸')">
+					<img src="travel5.jpg" alt="西湖樱花">
+					
+				</div>
+				<div class="gallery-item" onclick="openModal(this.children[0].src, '杭州龙井茶田 🍵')">
+					<img src="travel6.jpg" alt="龙井茶田">
+					
+				</div>
+				<div class="gallery-item" onclick="openModal(this.children[0].src, '重庆长江索道 🚠')">
+					<img src="travel7.jpg" alt="长江索道">
+					
+				</div>
+				<div class="gallery-item" onclick="openModal(this.children[0].src, '重庆洪崖洞夜景 🌆')">
+					<img src="travel8.jpg" alt="洪崖洞夜景">
+					
+				</div>
+			</div>
+
+		<!-- 文字描述 -->
+			<div class="travel-notes">
+				<blockquote>从趵突泉的涌动到大明湖的涟漪，从京娘湖的碧波到彼此眼中的倒影，每一滴水都映照着我们的故事。</blockquote>
+				<blockquote>山河无言，却替我们诉说：<br />"爱，是在泉水叮咚里听见心跳，在山水相依中读懂默契"</blockquote>
+				<blockquote>—— 祖国的每一寸土地，都在替我证明：<br />"此生所行，皆不及与你同行"</blockquote>
+			</div>
+
+		<!-- 返回按钮 -->
+			<button onclick="backToTime()" class="back-button">
+				<span>回到时光记录</span>
+				<div class="particles"></div>
+			</button>
+		</div>
+    </div>
+	
+
+    <!-- 背景音乐 -->
+    <audio id="music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3 " type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // 创建飘落的爱心
+        function createFallingHearts(count) {
+            const container = document.getElementById('heartsContainer');
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-fall';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                heart.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+                container.appendChild(heart);
+            }
+        }
+
+        // 创建闪光特效
+        function createSparkles(count) {
+            for (let i = 0; i < count; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkles';
+                sparkle.style.left = `${Math.random() * 100}%`;
+                sparkle.style.top = `${Math.random() * 100}%`;
+                sparkle.style.animationDuration = `${Math.random() * 1 + 1}s`;
+                sparkle.style.width = sparkle.style.height = `${Math.random() * 8 + 5}px`;
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 2000);
+            }
+        }
+
+        // 初始化动画
+        document.addEventListener('DOMContentLoaded', () => {
+            createFallingHearts(50);
+            setInterval(() => createFallingHearts(10), 1000);
+            
+            // 播放背景音乐
+            const music = document.getElementById('music');
+            music.play().catch(() => {
+                document.body.addEventListener('click', () => music.play(), { once: true });
+            });
+        });
+
+        // 显示表白信
+        function showLoveLetter() {
+            const mainContainer = document.getElementById('mainContainer');
+            const loveContainer = document.getElementById('loveContainer');
+            mainContainer.style.display = 'none';
+            loveContainer.style.display = 'block';
+            
+            // 添加特效
+            createSparkles(100);
+        }
+
+        // 显示在一起的时间
+        function showTimeTogether() {
+            const loveContainer = document.getElementById('loveContainer');
+            const timeContainer = document.getElementById('timeContainer');
+            loveContainer.style.display = 'none';
+            timeContainer.style.display = 'block';
+            
+            // 初始化时间统计
+            updateTimeTogether();
+            updateSinceMet();
+            
+            // 开始实时更新
+            setInterval(() => {
+                updateTimeTogether();
+                updateSinceMet();
+            }, 1000);
+        }
+
+        // 返回表白信
+        function backToLoveLetter() {
+            const loveContainer = document.getElementById('loveContainer');
+            const timeContainer = document.getElementById('timeContainer');
+            timeContainer.style.display = 'none';
+            loveContainer.style.display = 'block';
+        }
+
+        // 更新在一起的时间
+        function updateTimeTogether() {
+            const startDate = new Date('2025-02-10T22:30:00');
+            const now = new Date();
+            
+            let diff = Math.floor((now - startDate) / 1000);
+            
+            const days = Math.floor(diff / (60 * 60 * 24));
+            diff -= days * 60 * 60 * 24;
+            
+            const hours = Math.floor(diff / (60 * 60));
+            diff -= hours * 60 * 60;
+            
+            const minutes = Math.floor(diff / 60);
+            diff -= minutes * 60;
+            
+            const seconds = diff;
+            
+            document.getElementById('togetherTime').textContent = 
+                `${String(days).padStart(2, '0')}天${String(hours).padStart(2, '0')}小时${String(minutes).padStart(2, '0')}分${String(seconds).padStart(2, '0')}秒`;
+        }
+
+        // 计算相识至今时间
+        function updateSinceMet() {
+            const startDate = new Date('2025-01-07T00:00:00');
+            const now = new Date();
+            
+            let diff = Math.floor((now - startDate) / (1000 * 60 * 60 * 24)); // 总天数
+            
+            const years = Math.floor(diff / 365);
+            const months = Math.floor((diff % 365) / 30);
+            const days = diff % 30;
+            
+            document.getElementById('sinceMet').textContent = 
+                `${String(years).padStart(2, '0')}年${String(months).padStart(2, '0')}月${String(days).padStart(2, '0')}天`;
+        }
+		// 打开旅行页面
+		function showTravel() {
+			const timeContent = document.getElementById('timeContent');
+			const travelContent = document.getElementById('travelContent');
+			if (timeContent && travelContent) {
+				timeContent.style.display = 'none';
+				travelContent.style.display = 'block';
+			}
+		}
+
+		// 返回时间页
+		function backToTime() {
+			const timeContent = document.getElementById('timeContent');
+			const travelContent = document.getElementById('travelContent');
+			if (timeContent && travelContent) {
+				travelContent.style.display = 'none';
+				timeContent.style.display = 'block';
+			}
+		}
+
+		// 添加粒子特效
+		function createParticleEffect() {
+			const particles = document.querySelector('.particles');
+			particles.innerHTML = '';
+			for (let i = 0; i < 20; i++) {
+				const p = document.createElement('div');
+				p.className = 'sparkles';
+				p.style.left = `${Math.random() * 100}%`;
+				p.style.top = '100%';
+				p.style.width = p.style.height = `${Math.random() * 6 + 4}px`;
+				p.style.backgroundColor = '#fff';
+				p.style.animationDuration = `${Math.random() * 1 + 1}s`;
+				particles.appendChild(p);
+				setTimeout(() => p.remove(), 1000);
+			}
+		}
+		// 返回按钮触发粒子动效
+		document.querySelector('.back-button').addEventListener('click', () => {
+			createParticleEffect();
+		});
+
+		// 修改时间页按钮（在DOM加载后执行）
+		document.addEventListener('DOMContentLoaded', () => {
+			// 确保按钮添加到正确的容器内
+			const travelBtn = document.createElement('button');
+			travelBtn.innerHTML = '查看旅行回忆';
+			travelBtn.onclick = showTravel;
+			travelBtn.style.marginTop = '15px';
+
+			const timeContainer = document.getElementById('timeContainer');
+			if (timeContainer) {
+				timeContainer.appendChild(travelBtn);
+			} else {
+				console.error('timeContainer 未找到，请检查 HTML 结构');
+			}
+		});
+		// 模态窗口函数（已定义在前面）
+		function openModal(src, caption) {
+			const modal = document.getElementById('modal');
+			const img = document.getElementById('modalImg');
+			const text = document.getElementById('modalCaption');
+			img.src = src;
+			text.textContent = caption;
+			modal.style.display = 'block';
+		}
+    </script>
+</body>
+</html>
